@@ -1,12 +1,3 @@
-# Boodskap IoT Digital Twin Arduino Client Library
-
-# Create a new device
-
-Register an account with https://nocode.build and create a Device
-
-# Example
-```
-
 #include <DigitalTwin.h>
 #include <WiFi.h>
 #include <ArduinoJson.h>
@@ -25,6 +16,7 @@ void checkAndConnectWiFi();
 void readAndPublish();
 
 DigitalTwin twin;
+
 
 void setup() {
 
@@ -61,6 +53,7 @@ void readAndPublish(){
 }
 
 
+
 void checkAndConnectWiFi() {
 
   if (WiFi.status() == WL_CONNECTED) return;
@@ -75,4 +68,3 @@ void checkAndConnectWiFi() {
   Serial.println("");
   Serial.println(WiFi.localIP());
 }
-```

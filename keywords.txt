@@ -1,0 +1,19 @@
+###########################################
+# Syntax Coloring Map For DHT-sensor-library
+###########################################
+
+###########################################
+# Datatypes (KEYWORD1)
+###########################################
+
+DigitalTwin    KEYWORD1
+
+###########################################
+# Methods and Functions (KEYWORD2)
+###########################################
+
+begin    KEYWORD2
+publish    KEYWORD2
+receive    KEYWORD2
+setMqttBroker	KEYWORD2
+setApiKey	KEYWORD2
