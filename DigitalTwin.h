@@ -9,6 +9,8 @@
 
 #define DEFAULT_MQTT_BROKER "twinned.digital"
 #define DEFAULT_MQTT_PORT 1883
+#define FORMAT_SPIFFS_IF_FAILED true
+#define CONFIG_FILE "/config.json"
 
 /* Setup debug printing macros. */
 #ifdef TWIN_DEBUG
@@ -28,10 +30,8 @@ class DigitalTwin {
 public:
   DigitalTwin();
 
-  DigitalTwin& setMqttBroker(const char* mqttBroker);
-  DigitalTwin& setMqttBroker(const char* mqttBroker, int mqttPort);
-  DigitalTwin& setApiKey(const char* apiKey);
   DigitalTwin& setCallback(MQTT_CALLBACK_SIGNATURE);
+  void setup();
   boolean loop();
   boolean connected();
   int state();
@@ -40,12 +40,17 @@ public:
 
 private:
 
-  void checkAndConnect();
+  boolean checkAndConnectWiFi();
+  boolean checkAndConnect();
+  void listen();
 
-  char mqttBroker[120];
+  char mqttHost[120];
   int mqttPort;
-  char apiKey[20];
-  char topic[120];
+  char apiKey[40];
+  char topic[50];
+  char ssid[80];
+  char psk[40];
+  bool hasSetup;
 };
 
 #endif  //_DIGITAL_TWIN_H
